@@ -1,0 +1,40 @@
+<h1 *ngIf="pokemon" class=" text-2xl font-bold py-4 w-full text-center ">Fiche de {{pokemon.name}}</h1>
+<div class=" container mx-auto flex justify-center items-center  gap-4 py-6">
+    <div *ngIf="pokemon"   class=" grid grid-cols-2 w-full h-full border rounded shadow-lg px-12 py-6" >
+        <div>
+            <img [src]="pokemon.picture" class=" w-full h-full object-cover object-center"/>
+        </div>
+        <div class=" flex flex-col justify-a  py-4 gap-y-4">
+            <h2 class="font-bold text-6xl">{{ pokemon.name}}</h2>
+            <div>
+                <h2 class=" text-xl font-semibold">Points de vie</h2>
+                <p class=" font-semibold">{{ pokemon.hp}}</p>
+            </div>
+            <div>
+                <h2 class=" text-xl font-semibold">Dégâts</h2>
+                <p class=" font-semibold">{{ pokemon.cp}}</p>
+            </div>
+            <div>
+                <h2 class=" text-xl font-semibold">Date de Création</h2>
+                <p class=" font-semibold">{{ pokemon.created | date:'MMMM d, y' | uppercase}}</p>
+            </div>
+            <div>
+                <h2 class=" text-xl font-semibold">Caractéristiques</h2>
+                <p class=" font-semibold space-x-1 py-2">
+                    <span *ngFor="let type of pokemon.types" class=" {{type | pokemonTypeColor}} px-2 py-1 rounded">
+                        {{ type }}
+                    </span>   
+                </p>
+            </div>
+            <div>
+                <button (click)="goToHome()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Retour</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!pokemon" class="text-center">
+        <p class="text-2xl font-bold">Aucun pokémon sélectionné</p>
+        <div>
+            <button (click)="goToHome()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Retour</button>
+        </div>
+    </div>
+</div>

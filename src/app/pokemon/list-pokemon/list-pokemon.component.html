@@ -1,0 +1,17 @@
+<h1 class=" text-2xl font-bold py-2 w-full text-center ">Liste de pokémons</h1>
+<div class=" container mx-auto flex justify-center items-center flex-wrap gap-4 py-12">
+    <div (click)="viewDetail(pokemon)" *ngFor="let pokemon of pokemonList" class=" grid grid-cols-2 max-w-xs border rounded shadow-lg" pkmBorderCard="red">
+        <div>
+            <img [src]="pokemon.picture" class=" w-full h-full object-cover object-center"/>
+        </div>
+        <div class=" py-4">
+            <h2 class="font-bold text-xl">{{ pokemon.name}}</h2>
+            <p class=" font-semibold">{{ pokemon.created | date:'MMMM d, y' | uppercase}}</p>
+            <p class=" font-semibold space-x-1 py-2">
+                <span *ngFor="let type of pokemon.types" class=" {{type | pokemonTypeColor}} px-2 py-1 rounded">
+                    {{ type }}
+                </span>   
+            </p>
+        </div>
+    </div>
+</div>
