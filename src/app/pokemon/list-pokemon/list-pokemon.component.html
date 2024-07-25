@@ -1,4 +1,5 @@
 <h1 class=" text-2xl font-bold py-2 w-full text-center ">Liste de pokémons</h1>
+<app-search-pokemon></app-search-pokemon>
 <div class=" container mx-auto flex justify-center items-center flex-wrap gap-4 py-12">
     <div (click)="viewDetail(pokemon)" *ngFor="let pokemon of pokemonList" class=" grid grid-cols-2 max-w-xs border rounded shadow-lg" pkmBorderCard="red">
         <div>
@@ -15,3 +16,5 @@
         </div>
     </div>
 </div>
+
+<button routerLink="/pokemon/add" class="bg-red-500  hover:bg-red-700 text-white font-bold px-4 py-2 text-center text-2xl fixed bottom-2 right-2 rounded-full" >+</button>
