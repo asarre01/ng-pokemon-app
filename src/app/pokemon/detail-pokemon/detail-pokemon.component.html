@@ -34,7 +34,7 @@
         </div>
     </div>
     <div *ngIf="!pokemon" class="text-center">
-        <p class="text-2xl font-bold">Aucun pokémon sélectionné</p>
+        <app-loader/>
         <div>
             <button (click)="goToHome()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Retour</button>
         </div>

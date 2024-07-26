@@ -11,6 +11,9 @@ import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
+import { LoaderComponent } from './loader/loader.component';
+import { authGuard } from '../auth.guard';
+
 
 const pokemonRoutes: Routes = [
   {
@@ -19,7 +22,8 @@ const pokemonRoutes: Routes = [
   },
   {
     path: 'edit/pokemon/:id',
-    component: EditPokemonComponent
+    component: EditPokemonComponent,
+    canActivate: [authGuard]
   },
   {
       path: 'pokemons',
@@ -40,7 +44,8 @@ const pokemonRoutes: Routes = [
     PokemonFormComponent,
     EditPokemonComponent,
     AddPokemonComponent,
-    SearchPokemonComponent
+    SearchPokemonComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,

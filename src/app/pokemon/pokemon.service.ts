@@ -6,6 +6,7 @@ import { catchError, Observable, of, tap } from 'rxjs';
 
 @Injectable()
 export class PokemonService {
+  
   constructor(private http: HttpClient) { }
 
   getPokemonList(): Observable<Pokemon[]> {
